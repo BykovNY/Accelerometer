@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends ActionBarActivity {
 
     TextView mainValueTv;
@@ -72,7 +74,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     void refreshTvValue(){
-        mainValueTv.setText(accelValues[0] + "m/s");
+
+        DecimalFormat df = new DecimalFormat("0.##");
+
+        mainValueTv.setText(df.format(accelValues[0]) + "m/s");
     }
 
     SensorEventListener listener = new SensorEventListener(){
